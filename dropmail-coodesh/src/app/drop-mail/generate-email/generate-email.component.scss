@@ -10,13 +10,35 @@
 }
 
 .header {
-    background-color: #f0f8ff;
+    background-color: #B8CFFA;
 }
 
 .bg {
     background-color: #f8f9fa;
 }
 
-.cp{
+.copy {
+    padding: 5px;
+    border-radius: 8px;
     cursor: pointer;
+
+    img {
+
+        height: 21px;
+    }
+
+    &:hover {
+        background-color: #B8CFFA;
+    }
+}
+
+.notification {
+    cursor: pointer
+}
+
+:host ::ng-deep .p-button {
+    color: black;
+    background-color: #B8CFFA;
+    border-color: #B8CFFA;
+    border-radius: 4px;
 }

@@ -1,6 +1,15 @@
 <div>
     <div class="d-flex justify-content-center align-items-center p-4" *ngIf="!showInfoEmail; else showInfo">
-        <p-button label="Gerar email temporário" (onClick)="generateEmail()"></p-button>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <h2>Gerador de email temporário</h2>
+            </div>
+
+            <div class="col-12 d-flex justify-content-center">
+                <p-button label="Gerar email temporário" (onClick)="generateEmail()"></p-button>
+            </div>
+        </div>
+       
     </div>
 
     <ng-template #showInfo>
@@ -8,14 +17,28 @@
             <div class="col">
                 <b>DropMail</b>
             </div>
-            <div class="col justify-content-end align-items-center d-flex justify-content-end">Expira em {{generatedEmail.expiresAt | date:'dd/MM h:mm'}}</div>
+            <div class="col justify-content-end align-items-center d-flex justify-content-end">Expira em
+                {{"2023-11-14T15:01:41+00:00" | date:'dd/MM h:mm'}}</div>
         </div>
 
         <div class="bg pt-3">
-            <div class="d-flex flex-column align-items-center">
-                <small>Seu endereço de email temporário:</small>
-                <div class="w-50 address d-flex justify-content-center">{{generatedEmail.address}}</div>
-                <small class="cp" (click)="clipboard()">{{textCopy}}</small>
+            <div class="row">
+                <div class="col-lg4 col-1 col-md-4"></div>
+                <div class="col-lg-4 col-md-4 col-10 d-flex flex-column align-items-center justify-content-center">
+                    <div class="pb-2">Seu endereço de email temporário:</div>
+
+                    <div class="w-100 address row">
+                        <div class="col"></div>
+                        <div class="col d-flex justify-content-center align-items-center">{{generatedEmail.address}}</div>
+                        <div class="col d-flex justify-content-end">
+                            <div class="copy"><img (click)="clipboard()" src="/assets/imgs/copy.png" alt=""></div>
+                           
+                        </div>
+                    </div>
+
+                    <p-button (click)="notification()" class="mt-3 notification">Receber notificações</p-button>
+                </div>
+                <div class="col-lg-4 col-1 col-md-4 "></div>
             </div>
         </div>
     </ng-template>

@@ -9,8 +9,8 @@ import { Mails } from '../shared/mails.model';
 })
 export class DisplayEmailsComponent implements OnInit {
   id: any = null
-  item: Mails = { downloadUrl: "", fromAddr: "", headerSubject: "", rawSize: -1, subtext: "", text: "", toAddr: "" }
-  mails: Mails[] = [{ downloadUrl: "", fromAddr: "", headerSubject: "Caixa de entrada Vazia...", rawSize: -1, subtext: "", text: "", toAddr: "" }]
+  item: any = { downloadUrl: "", fromAddr: "", headerSubject: "", rawSize: -1, subtext: "", text: "", toAddr: "" }
+  mails: Mails[] = []
   seconds: number = 15
 
   constructor(private dropMailService: DropMailService) { }
@@ -27,7 +27,11 @@ export class DisplayEmailsComponent implements OnInit {
   getEmails() {
     this.id = sessionStorage.getItem("id")
     this.dropMailService.getEmails(this.id).subscribe(res => {
-      this.mails = res.data.session.mails.length > 0 ? res.data.session.mails : [{ downloadUrl: "", fromAddr: "", headerSubject: "Caixa de entrada Vazia...", rawSize: -1, subtext: "", text: "", toAddr: "" }]
+      if (this.mails.length != res.data.session.mails.length)
+        new Notification(`Você tem ${res.data.session.mails.length - this.mails.length} novo(s) email(s)!`);
+
+      this.mails = res.data.session.mails
+
       this.timer()
     })
   }

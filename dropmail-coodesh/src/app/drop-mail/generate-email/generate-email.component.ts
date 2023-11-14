@@ -56,4 +56,10 @@ export class GenerateEmailComponent implements OnInit {
     sessionStorage.setItem("address", this.generatedEmail.address);
   }
 
+  notification() {
+    if (Notification.permission == "denied" || Notification.permission == "default") {
+      Notification.requestPermission()
+    }
+  }
+
 }
