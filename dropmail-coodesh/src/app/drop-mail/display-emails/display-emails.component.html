@@ -1,0 +1,49 @@
+<div class="row p-5 bg-c ">
+    <div class="col-lg-4">
+        <p-virtualScroller [value]="mails"
+            scrollHeight="64vh" 
+            [itemSize]="50"
+        >
+
+        <ng-template pTemplate="header">
+            <div class="row header-left">
+                <div class="col">
+                    Caixa de entrada
+                </div>
+                <div class="col d-flex justify-content-end">
+                    Atualiza em: {{seconds}}
+                </div>
+            </div>
+        </ng-template>
+            <ng-template pTemplate="item" let-item>
+                <div class="cp" (click)="setItem(item)">
+                    <div>{{ item.fromAddr }}</div>
+                    <div><b>{{item.headerSubject}}</b></div>
+                    <div>{{item.text.length > 60? item.text.substr(0,60)+'...': item.text}}</div>
+
+                </div>
+            </ng-template>
+        </p-virtualScroller>
+    </div>
+
+    <div class="col-lg-8">
+        <div *ngIf="item.rawSize > 0" class="mail">
+            <div class="row from ps-4 pt-3 pb-3">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    Enviado por: <b>{{item.fromAddr}}</b>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-end">
+                    <img (click)="download()" pTooltip="Baixar email" tooltipPosition="left" class="download me-4" src="/assets/imgs/botao-de-download.png" alt="">
+                </div>
+            </div>
+
+            <div class="m-4 p-5 body-mail">
+                <h1>{{item.headerSubject}}</h1>
+                <div class="mt-2 break-line">{{item.text}}</div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div>
+    <div class="d-flex justify-content-center align-items-center p-4" *ngIf="!showInfoEmail; else showInfo">
+        <p-button label="Gerar email temporário" (onClick)="generateEmail()"></p-button>
+    </div>
+
+    <ng-template #showInfo>
+        <div class="header p-4 row">
+            <div class="col">
+                <b>DropMail</b>
+            </div>
+            <div class="col justify-content-end align-items-center d-flex justify-content-end">Expira em {{generatedEmail.expiresAt | date:'dd/MM h:mm'}}</div>
+        </div>
+
+        <div class="bg pt-3">
+            <div class="d-flex flex-column align-items-center">
+                <small>Seu endereço de email temporário:</small>
+                <div class="w-50 address d-flex justify-content-center">{{generatedEmail.address}}</div>
+                <small class="cp" (click)="clipboard()">{{textCopy}}</small>
+            </div>
+        </div>
+    </ng-template>
+</div>

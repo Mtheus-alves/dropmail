@@ -1,0 +1,54 @@
+.row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+}
+
+
+.break-line {
+    white-space: pre-line;
+}
+
+.bg-c {
+    min-height: 64vh;
+    background-color: #f8f9fa;
+}
+
+:host ::ng-deep .p-scroller-content {
+    background-color: #f8f9fa;
+
+}
+
+:host ::ng-deep .p-virtualscroller-item {
+    display: flex;
+    align-items: center;
+    height: 110px !important;
+    border-bottom: 1px solid #dee2e6;
+}
+
+:host ::ng-deep .p-virtualscroller {
+    border-right: 1px solid #dee2e6
+}
+
+.border-mail {
+    border-bottom: 1px solid black;
+}
+
+.body-mail{
+    background-color: #f0f8ff;
+    height: 56vh;
+    overflow: auto
+}
+
+.cp{
+    cursor: pointer;
+}
+
+.from{
+    border-top: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.download{
+    cursor: pointer;
+    height: 24px;
+}
