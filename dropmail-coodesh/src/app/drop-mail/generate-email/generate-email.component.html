@@ -26,7 +26,7 @@
             </div>
         </div>
        
-    </div>
+    </div> 
 
     <ng-template #showInfo>
         <div class="header p-4 row">
@@ -34,7 +34,7 @@
                 <b>DropMail</b>
             </div>
             <div class="col justify-content-end align-items-center d-flex justify-content-end">Expira em
-                {{"2023-11-14T15:01:41+00:00" | date:'dd/MM h:mm'}}</div>
+                {{generatedEmail.expiresAt | date : 'dd/MM/yyyy'}}</div>
         </div>
 
         <div class="bg pt-3">
