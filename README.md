@@ -1,1 +1,27 @@
-# dropmail
+# DropMail Coodesh
+
+Projeto de geração e visualização de email temporário para teste da Coodesh.
+
+## Instalação
+
+Use o package manager [Yarn](https://yarnpkg.com/) para instalar o projeto.
+
+```bash
+yarn install
+```
+
+Em seguida executar o comando para inicializar o programa [local](http://localhost:4200/dropmail).
+```bash
+yarn rum build
+```
+
+## Mais informações
+
+Este projeto foi desenvolvido em Angular, juntamente com as biblotecas [Bootstrap](https://getbootstrap.com/) e [Primefaces](https://primeng.org/).
+
+O projeto também foi publicado na plataforma [Vercel](vercel.com)
+URL: [https://dropmail-wheat.vercel.app/dropmail](https://dropmail-wheat.vercel.app/dropmail)
+
+## Licença
+
+This is a challenge by [Coodesh](https://coodesh.com//)
