@@ -21,7 +21,8 @@ import { TooltipModule } from 'primeng/tooltip';
   declarations: [
     DropMailComponent,
     GenerateEmailComponent,
-    DisplayEmailsComponent,
+    DisplayEmailsComponent
+
   ]
 })
 export class DropMailModule { }
