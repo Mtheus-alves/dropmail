@@ -10,6 +10,7 @@ import { GeneratedEmail } from '../shared/generated-email.model';
 export class GenerateEmailComponent implements OnInit {
   @Output() showEmails: EventEmitter<boolean> = new EventEmitter()
 
+  teste: any = ""
   generatedEmail: GeneratedEmail = { address: "", expiresAt: "", id: "" }
   showInfoEmail: boolean = false
   textCopy: string = "Copiar"
@@ -17,8 +18,11 @@ export class GenerateEmailComponent implements OnInit {
   constructor(private dropMailService: DropMailService) { }
 
   ngOnInit() {
-    this.showInfoEmail = sessionStorage.getItem("id") != null
+    this.validEmail()
+
+    this.showInfoEmail = sessionStorage.getItem("id") != null && sessionStorage.getItem("address") != null
     this.showEmails.emit(this.showInfoEmail)
+
     if (this.showInfoEmail)
       this.getSessionStorage()
   }
@@ -54,6 +58,14 @@ export class GenerateEmailComponent implements OnInit {
     sessionStorage.setItem("id", this.generatedEmail.id);
     sessionStorage.setItem("expiresAt", this.generatedEmail.expiresAt);
     sessionStorage.setItem("address", this.generatedEmail.address);
+  }
+
+  validEmail() {
+    if (new Date(sessionStorage.getItem("expiresAt") || "") < new Date(Date.now())) {
+      sessionStorage.removeItem("id");
+      sessionStorage.removeItem("expiresAt");
+      sessionStorage.removeItem("address");
+    }
   }
 
   notification() {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DropMailService } from 'src/app/dropMail.service';
 import { Mails } from '../shared/mails.model';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-display-emails',
@@ -26,6 +27,10 @@ export class DisplayEmailsComponent implements OnInit {
 
   getEmails() {
     this.id = sessionStorage.getItem("id")
+
+    if (this.id == null)
+      return
+
     this.dropMailService.getEmails(this.id).subscribe(res => {
       if (this.mails.length != res.data.session.mails.length)
         new Notification(`Você tem ${res.data.session.mails.length - this.mails.length} novo(s) email(s)!`);

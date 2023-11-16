@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DropMailService {
-  url: string = 'https://cors-anywhere.herokuapp.com/https://dropmail.me/api/graphql/coodeshTest'
+  url: string = 'https://cors-anywhere.herokuapp.com/https://dropmail.me/api/graphql/matheus123'
 
   constructor(private http: HttpClient) { }
 

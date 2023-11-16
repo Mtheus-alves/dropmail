@@ -1,6 +1,6 @@
-<div>
+<div >
     <div class="d-flex justify-content-center align-items-center p-4" *ngIf="!showInfoEmail; else showInfo">
-        <div class="row">
+        <div class="introduction row p-4">
             <div class="col-12 d-flex justify-content-center">
                 <h2>Gerador de email temporário</h2>
             </div>
@@ -17,16 +17,25 @@
                 Você pode gerar email ilimitados!
             </h5>
 
+            <h5 class="mt-3 col-12 d-flex justify-content-center">
+                caso tenha problemas para gerar o email, acesse o link abaixo e clique no botão "Request temporary access to the demo
+                server"
+            </h5>
+            <div class="col-12 d-flex justify-content-center">
+                <a href="https://cors-anywhere.herokuapp.com/corsdemo">https://cors-anywhere.herokuapp.com/corsdemo</a>
+            </div>
+
+
+
             <small class="mt-3 col-12 d-flex justify-content-center">
                 <b>*This is a challenge by Coodeshc</b>
             </small>
 
-            <div class="mt-3 col-12 d-flex justify-content-center">
+            <div class="btn-generate mt-3 col-12 d-flex justify-content-center">
                 <p-button label="Gerar email temporário" (onClick)="generateEmail()"></p-button>
             </div>
         </div>
-       
-    </div> 
+    </div>
 
     <ng-template #showInfo>
         <div class="header p-4 row">
@@ -34,7 +43,7 @@
                 <b>DropMail</b>
             </div>
             <div class="col justify-content-end align-items-center d-flex justify-content-end">Expira em
-                {{generatedEmail.expiresAt | date : 'dd/MM/yyyy'}}</div>
+                {{generatedEmail.expiresAt | date : 'dd/MM HH:mm'}}</div>
         </div>
 
         <div class="bg pt-3">
@@ -45,10 +54,12 @@
 
                     <div class="w-100 address row">
                         <div class="col"></div>
-                        <div class="col d-flex justify-content-center align-items-center">{{generatedEmail.address}}</div>
+                        <div class="col d-flex justify-content-center align-items-center">{{generatedEmail.address}}
+                        </div>
                         <div class="col d-flex justify-content-end">
-                            <div class="copy"><img (click)="clipboard()" src="/assets/imgs/copy.png" alt=""></div>
-                           
+                            <button pTooltip="Email copiado" tooltipEvent="focus" class="copy">
+                                <img (click)="clipboard()" src="/assets/imgs/copy.png" alt="">
+                            </button>
                         </div>
                     </div>
 
@@ -57,5 +68,6 @@
                 <div class="col-lg-4 col-1 col-md-4 "></div>
             </div>
         </div>
+
     </ng-template>
 </div>

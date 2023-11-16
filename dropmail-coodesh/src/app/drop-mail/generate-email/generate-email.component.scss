@@ -17,23 +17,27 @@
     background-color: #f8f9fa;
 }
 
+.notification {
+    cursor: pointer
+}
+
 .copy {
     padding: 5px;
     border-radius: 8px;
     cursor: pointer;
+    border: none;
+    background-color: transparent;
 
     img {
-
         height: 21px;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: #B8CFFA;
     }
-}
 
-.notification {
-    cursor: pointer
+
 }
 
 :host ::ng-deep .p-button {
