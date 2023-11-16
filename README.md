@@ -19,7 +19,7 @@ caso tenha problemas de CORS, acesse o link [https://cors-anywhere.herokuapp.com
 
 ## Mais informações
 
-Este projeto foi desenvolvido em Angular, juntamente com as biblotecas [Bootstrap](https://getbootstrap.com/) e [Primefaces](https://primeng.org/).
+Este projeto foi desenvolvido em Angular, juntamente com as biblotecas [Bootstrap](https://getbootstrap.com/), [Primefaces](https://primeng.org/) e testes com [Cypress](https://www.cypress.io/). 
 
 O projeto também foi publicado na plataforma [Vercel](vercel.com)
 URL: [https://dropmail-wheat.vercel.app/dropmail](https://dropmail-wheat.vercel.app/dropmail)
