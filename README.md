@@ -15,6 +15,8 @@ Em seguida executar o comando para inicializar o programa [local](http://localho
 yarn rum build
 ```
 
+caso tenha problemas de CORS, acesse o link [https://cors-anywhere.herokuapp.com/corsdemo](https://cors-anywhere.herokuapp.com/corsdemo) e clique no botão "Request temporary access to the demo server"
+
 ## Mais informações
 
 Este projeto foi desenvolvido em Angular, juntamente com as biblotecas [Bootstrap](https://getbootstrap.com/) e [Primefaces](https://primeng.org/).
